@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+.dark {
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@theme {
+  --color-glass: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+}
+
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+body {
+  @apply bg-base-300 text-base-content min-h-screen;
+  background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.video-container {
+  @apply relative overflow-hidden rounded-2xl shadow-2xl glass aspect-video w-full flex items-center justify-center;
+}
+
+.video-feed {
+  @apply w-full h-full object-cover;
+}

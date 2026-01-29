@@ -25,13 +25,15 @@ A modern, production-ready WebRTC video chat frontend built with React, Tailwind
 - npm
 
 ### Installation
-1. Navigate to the client directory:
-   ```bash
-   cd client
-   ```
-2. Install dependencies:
+1. Install client dependencies:
    ```bash
    npm install
+   ```
+2. Install signaling server dependencies:
+   ```bash
+   cd server
+   npm install
+   cd ..
    ```
 
 ### Configuration
@@ -42,10 +44,18 @@ VITE_BACKEND_URL=http://your-backend-url.com
 *Note: Defaults to `http://localhost:5000` if no env is provided.*
 
 ### Running the App
-```bash
-npm run dev
-```
-The application will be available at `http://localhost:5173`.
+1. Start the signaling server:
+   ```bash
+   cd server
+   npm run dev
+   ```
+2. In another terminal, start the frontend:
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:5173` and the signaling server on
+`http://localhost:5000`.
 
 ## Architecture
 - `src/hooks/useWebRTC.js`: Core logic for peer connection management and signaling.

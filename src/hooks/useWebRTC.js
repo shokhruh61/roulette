@@ -45,7 +45,10 @@ export const useWebRTC = (socket) => {
         setRemoteStream(null);
         remoteUserIdRef.current = null;
         setStatus('idle');
-    }, []);
+        if (socket) {
+            socket.emit('leave');
+        }
+    }, [socket]);
 
     // Create Peer Connection
     const createPeerConnection = useCallback((peerId) => {

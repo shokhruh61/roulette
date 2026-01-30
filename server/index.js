@@ -73,6 +73,11 @@ io.on('connection', (socket) => {
     io.to(to).emit('ice-candidate', { from: socket.id, candidate });
   });
 
+  socket.on('leave', () => {
+    removeFromWaiting(socket.id);
+    clearPairing(socket.id);
+  });
+
   socket.on('disconnect', () => {
     console.log(`Socket disconnected: ${socket.id}`);
     removeFromWaiting(socket.id);

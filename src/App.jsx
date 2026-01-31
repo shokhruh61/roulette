@@ -34,10 +34,7 @@ function App() {
   }, [localStream]);
 
   const handleNext = () => {
-    if (socket) {
-      socket.emit('find-match');
-      startMatching();
-    }
+    startMatching();
   };
 
   return (
